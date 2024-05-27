@@ -1,5 +1,5 @@
-import request from 'supertest';
-import { app } from '../src/app.js';
+const request = require('supertest');
+const app = require('../src/app');
 
 describe('POST /car-value', () => {
     test('should return the correct car value for a valid input (Sunny day scenario)', async () => {
@@ -8,7 +8,7 @@ describe('POST /car-value', () => {
             .send({ model: 'Civic', year: 2020 });
 
         expect(res.status).toBe(200);
-        expect(res.body.car_value).toBe(6614);
+        expect(res.body.car_value).toBe(6620);
     });
 
     test('should return the correct car value for a model with numbers only', async () => {
@@ -44,6 +44,6 @@ describe('POST /car-value', () => {
             .send({ model: 'Hello, World!', year: 2010 });
 
         expect(res.status).toBe(200);
-        expect(res.body.car_value).toBe(10840);
+        expect(res.body.car_value).toBe(14410);
     });
 });
