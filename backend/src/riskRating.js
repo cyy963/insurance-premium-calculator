@@ -25,15 +25,17 @@ function claimToLowerCase(claimArray) {
     }
     return count;
   }
+   
   
-  function isOnlyWhitespace(str) {
-    return str.trim().length === 0;
-  } 
-  
-  function calculateRiskRating(inputClaim){
-    const claimArray = claimToLowerCase(inputClaim.split(" "));
-    
+function calculateRiskRating(inputClaim) {
+  const MINIMUM_WORDS_IN_CLAIM = 3;
+    const claimArray = claimToLowerCase(inputClaim.trim().split(" "));
+    if (claimArray < MINIMUM_WORDS_IN_CLAIM) {
+      return 'error';
+    } else {
       return countKeywords(claimArray);
+    }
+      
   };
   
   module.exports = { calculateRiskRating };

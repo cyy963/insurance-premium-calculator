@@ -26,8 +26,8 @@ app.post('/car-value', (req, res) => {
 app.post('/risk-rating', (req, res) => {
   const claimHistory  = req.body.claim_history;
   const riskRating = calculateRiskRating(claimHistory);
-
-  if (inputClaim === "" || isOnlyWhitespace(inputClaim) || claimArray.length === 1){
+  
+  if (riskRating === 'error'){
       return res.status(400).json({ error: "there is an error" });
   } else {
     res.json({ risk_rating: riskRating });
