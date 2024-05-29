@@ -25,14 +25,19 @@ function countKeywords(claimArray) {
       }
     }
     return (count === 0? MINIMUM_RISK_RATING : count );
-  }
+}
+  
+function isOnlySymbols(str) {
+  const regex = /^[^a-zA-Z0-9]+$/;
+  return regex.text(str);
+}
    
   
 function calculateRiskRating(inputClaim) {
   const MINIMUM_WORDS_IN_CLAIM = 3;
-  const regex = /^[^a-zA-Z0-9]+$/;
+  
     const claimArray = claimToLowerCase(inputClaim.trim().split(" "));
-    if (claimArray < MINIMUM_WORDS_IN_CLAIM || regex.test(inputClaim)) {
+    if (claimArray < MINIMUM_WORDS_IN_CLAIM || isOnlySymbols(inputClaim)) {
       return 'error';
     } else {
       return countKeywords(claimArray);

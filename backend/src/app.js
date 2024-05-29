@@ -4,6 +4,8 @@ const calculateCarValue = require('./carValue');
 
 const calculateRiskRating = require('./riskRating');
 
+const calculatePremium = require('./quote');
+
 const app = express();
 
 // Use CORS middleware
@@ -32,6 +34,16 @@ app.post('/risk-rating', (req, res) => {
   } else {
     res.json({ risk_rating: riskRating });
   }
+});
+
+app.post('/quote', (req, res) => {
+  const { carValue, risk_rating } = req.body;
+  const quote = calculatePremium(carValue, risk_rating);
+  if (quote === 'error'){
+    return res.status(400).json({ error: "there is an error" });
+} else {
+  res.json({quote});
+}
 });
 
 module.exports = app;
