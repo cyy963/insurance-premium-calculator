@@ -32,14 +32,28 @@ describe('POST /risk-rating', () => {
             .send({ claim_history: "" });
 
         expect(res.status).toBe(400);
-        expect(res.body.risk_rating).toBe('there is an error');
+        expect(res.body.error).toBe('there is an error');
     });
     test('Input is only whitespace', async () => {
         const res = await request(app)
             .post('/risk-rating')
             .send({ claim_history: "           " });
         expect(res.status).toBe(400);
-        expect(res.body.risk_rating).toBe('there is an error');
+        expect(res.body.error).toBe('there is an error');
+    });
+    test('Input is only symbols', async () => {
+        const res = await request(app)
+            .post('/risk-rating')
+            .send({ claim_history: "%#$@#$@" });
+        expect(res.status).toBe(400);
+        expect(res.body.error).toBe('there is an error');
+    });
+    test('Keywords appear more times than maximum risk rating of 5', async () => {
+        const res = await request(app)
+            .post('/risk-rating')
+            .send({ claim_history: "Crashed crashed bump collided scratched collide" });
+        expect(res.status).toBe(200);
+        expect(res.body.risk_rating).toBe(5);
     });
 
 });

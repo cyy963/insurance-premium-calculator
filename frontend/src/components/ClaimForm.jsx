@@ -9,7 +9,7 @@ const ClaimForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
-        setCarValue(null);
+        setRiskRating(null);
 
         try {
             const response = await axios.post('http://localhost:3000/risk-rating', { claim_history: claimHistory });
@@ -20,21 +20,23 @@ const ClaimForm = () => {
     };
 
     return (
-        <div>
+        <div style={{marginBottom: "10px", marginTop: "10px"}}>
             <h1>Risk Rating Calculator</h1>
             <form onSubmit={handleSubmit}>
-                    <label for="text">Risk Rating Calculator:</label>
+                    <label htmlFor="claim">Claim History:</label>
                     <br />
-                    <textArea
-                        id="text"
+                    <textarea
+                    id="claim"
+                    placeholder='Please enter your claim history.'
                         rows="5" cols="40"
                         value={claimHistory}
                         onChange={(e) => setClaimHistory(e.target.value)}
                         required>
-                    </textArea>
+                </textarea>
+                <br />
                 <button type="submit">Submit</button>
             </form>
-            {riskRating && <h2>Risk Rating: ${riskRating}</h2>}
+            {riskRating && <h2>Risk Rating: {riskRating}</h2>}
             {error && <h2>Error: {error}</h2>}
         </div>
     );

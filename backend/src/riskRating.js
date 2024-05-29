@@ -15,22 +15,24 @@ function claimToLowerCase(claimArray) {
     }
   }
   
-  function countKeywords(claimArray) {
+function countKeywords(claimArray) {
+  const MINIMUM_RISK_RATING = 1;
+  const MAXIMUM_RISK_RATING = 5;
     let count = 0;
     for (const arrayItem of claimArray) {
-      console.log(arrayItem);
       if (isKeywordMatch(arrayItem)) {
-        count++;
+        count < MAXIMUM_RISK_RATING ? count++: count += 0;
       }
     }
-    return count;
+    return (count === 0? MINIMUM_RISK_RATING : count );
   }
    
   
 function calculateRiskRating(inputClaim) {
   const MINIMUM_WORDS_IN_CLAIM = 3;
+  const regex = /^[^a-zA-Z0-9]+$/;
     const claimArray = claimToLowerCase(inputClaim.trim().split(" "));
-    if (claimArray < MINIMUM_WORDS_IN_CLAIM) {
+    if (claimArray < MINIMUM_WORDS_IN_CLAIM || regex.test(inputClaim)) {
       return 'error';
     } else {
       return countKeywords(claimArray);
@@ -38,5 +40,5 @@ function calculateRiskRating(inputClaim) {
       
   };
   
-  module.exports = { calculateRiskRating };
+  module.exports =  calculateRiskRating ;
   
