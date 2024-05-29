@@ -13,9 +13,11 @@ const App = () => {
     <div className='body'>
       <img className='nav' src={TCnav} alt="Navigation" />
       <img className='banner' src={TCbanner} alt="Banner" />
-      <CarValueForm />
-      <ClaimForm />
-      <QuoteForm />
+      <div className='pageContent'>
+        <CarValueForm />
+        <ClaimForm />
+        <QuoteForm />
+      </div>
       <img className='footer' src={TCfooter} alt="Footer" />
     </div>
   );
