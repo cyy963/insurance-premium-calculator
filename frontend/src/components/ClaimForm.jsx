@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import styles from "./CarValueForm.module.css"
 
 const ClaimForm = () => {
     const [claimHistory, setClaimHistory] = useState();
@@ -20,7 +21,7 @@ const ClaimForm = () => {
     };
 
     return (
-        <div style={{marginBottom: "10px", marginTop: "10px"}}>
+        <div className={styles.carValueFormContainer}>
             <h1>Risk Rating Calculator</h1>
             <form onSubmit={handleSubmit}>
                     <label htmlFor="claim">Claim History:</label>

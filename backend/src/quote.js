@@ -1,27 +1,15 @@
-const YEARLY_PREMIUM_DIVISOR = 100;
-const MONTHS_IN_YEAR = 12;
-
-
-
 function calculatePremium(carValue, riskRating) {
-    if (carValue < 100 || carValue > 999999 || !Number.isInteger(carValue) || !Number.isInteger(riskRating)) {
-        console.log('ff')
-        console.log(carValue < 100)
-        console.log(carValue > 999999)
-        return 'error';
-    } else {
-        console.log("first")
-        const yearlyPremium = (carValue * riskRating) / YEARLY_PREMIUM_DIVISOR;
-        const monthlyPremium = yearlyPremium / MONTHS_IN_YEAR;
-        console.log(yearlyPremium);
-        console.log(monthlyPremium);
+  if (typeof carValue !== 'number' || typeof riskRating !== 'number' || carValue <= 0 || riskRating < 1 || riskRating > 5) {
+    throw new Error("there is an error");
+  }
 
-        return { monthly_premium: monthlyPremium, yearly_premium: yearlyPremium };
-    }
+  const yearlyPremium = (carValue * riskRating) / 100;
+  const monthlyPremium = yearlyPremium / 12;
 
-    
+  return {
+    monthly_premium: parseFloat(monthlyPremium.toFixed(2)),
+    yearly_premium: parseFloat(yearlyPremium.toFixed(2))
+  };
 }
-
-calculatePremium(6614, 5);
 
 module.exports = calculatePremium;

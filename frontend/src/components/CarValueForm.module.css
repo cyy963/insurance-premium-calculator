@@ -1,0 +1,27 @@
+
+.carValueFormContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding: 10px;
+}
+
+.carValueFormContainer *{
+  margin: 5px 0;
+}
+.carValueFormContainer button{
+  background-color: rgb(0, 115, 207);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  padding: 10px 15px;
+}
+
+.inputContainer *{
+  margin-right: 10px;
+}
+
+.carValueFormContainer h2{
+  color: rgb(0, 115, 207);
+}

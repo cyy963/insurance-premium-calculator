@@ -1,10 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const calculateCarValue = require('./carValue');
-
 const calculateRiskRating = require('./riskRating');
-
-const calculatePremium = require('./quote');
+const calculatePremium = require('./quote')
 
 const app = express();
 
@@ -37,13 +35,18 @@ app.post('/risk-rating', (req, res) => {
 });
 
 app.post('/quote', (req, res) => {
-  const { carValue, risk_rating } = req.body;
-  const quote = calculatePremium(carValue, risk_rating);
-  if (quote === 'error'){
-    return res.status(400).json({ error: "there is an error" });
-} else {
-  res.json({quote});
-}
+  const { car_value, risk_rating } = req.body;
+
+  if (typeof car_value !== 'number' || typeof risk_rating !== 'number' || risk_rating < 1 || risk_rating > 5) {
+      return res.status(400).json({ error: "there is an error" });
+  }
+
+  try {
+      const premiums = calculatePremium(car_value, risk_rating);
+      res.json(premiums);
+  } catch (e) {
+      res.status(400).json({ error: e.message });
+  }
 });
 
 module.exports = app;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import styles from "./CarValueForm.module.css"
 
 const CarValueForm = () => {
     const [model, setModel] = useState('');
@@ -21,10 +22,10 @@ const CarValueForm = () => {
     };
 
     return (
-        <div>
+        <div className={styles.carValueFormContainer}>
             <h1>Car Value Calculator</h1>
             <form onSubmit={handleSubmit}>
-                <div>
+                <div className={styles.inputContainer}>
                     <label>Model:</label>
                     <input
                         type="text"
@@ -33,12 +34,13 @@ const CarValueForm = () => {
                         required
                     />
                 </div>
-                <div>
+                <div className={styles.inputContainer}>
                     <label>Year:</label>
                     <input
                         type="number"
                         value={year}
                         onChange={(e) => setYear(e.target.value)}
+                        min={1}
                         required
                     />
                 </div>
