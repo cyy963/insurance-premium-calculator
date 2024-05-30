@@ -23,31 +23,33 @@ const CarValueForm = () => {
 
     return (
         <div className={styles.carValueFormContainer}>
-            <h1>Car Value Calculator</h1>
+            <h2>1. Car Value Calculator</h2>
             <form onSubmit={handleSubmit}>
                 <div className={styles.inputContainer}>
                     <label>Model:</label>
                     <input
-                        type="text"
-                        value={model}
-                        onChange={(e) => setModel(e.target.value)}
-                        required
+                      placeholder='eg.civic'
+                      type="text"
+                      value={model}
+                      onChange={(e) => setModel(e.target.value)}
+                      required
                     />
                 </div>
                 <div className={styles.inputContainer}>
                     <label>Year:</label>
                     <input
-                        type="number"
-                        value={year}
-                        onChange={(e) => setYear(e.target.value)}
-                        min={1}
-                        required
+                      placeholder='eg.2020'
+                      type="number"
+                      value={year}
+                      onChange={(e) => setYear(e.target.value)}
+                      min={1}
+                      required
                     />
                 </div>
                 <button type="submit">Calculate</button>
             </form>
-            {carValue && <h2>Car Value: ${carValue}</h2>}
-            {error && <h2>Error: {error}</h2>}
+            <h3>Car Value: {carValue && `$${carValue}`}</h3>
+            {error && <h3>Error: {error}</h3>}
         </div>
     );
 };
