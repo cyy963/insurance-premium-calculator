@@ -52,8 +52,8 @@ const QuoteForm = () => {
               </div>
               <button type="submit">Calculate</button>
             </form>
-            {monthlyPremium !== null && <h3>Monthly Premium: ${monthlyPremium.toFixed(2)}</h3>}
-            {yearlyPremium !== null && <h3>Yearly Premium: ${yearlyPremium.toFixed(2)}</h3>}
+            <h3>Monthly Premium: {monthlyPremium && `$${monthlyPremium.toFixed(2)}`}</h3>
+            <h3>Yearly Premium: {yearlyPremium && `$${yearlyPremium.toFixed(2)}`}</h3>
             {error && <h3>Error: {error}</h3>}
         </div>
     );

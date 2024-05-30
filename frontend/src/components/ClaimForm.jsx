@@ -34,7 +34,7 @@ const ClaimForm = () => {
               </div>
               <button type="submit">Calculate</button>
             </form>
-            {riskRating && <h3>Risk Rating: {riskRating}</h3>}
+            <h3>Risk Rating: {riskRating && `${riskRating}`}</h3>
             {error && <h3>Error: {error}</h3>}
         </div>
     );

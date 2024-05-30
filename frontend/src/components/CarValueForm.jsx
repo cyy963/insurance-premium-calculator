@@ -48,7 +48,7 @@ const CarValueForm = () => {
                 </div>
                 <button type="submit">Calculate</button>
             </form>
-            {carValue && <h3>Car Value: ${carValue}</h3>}
+            <h3>Car Value: {carValue && `$${carValue}`}</h3>
             {error && <h3>Error: {error}</h3>}
         </div>
     );
