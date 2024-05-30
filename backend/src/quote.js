@@ -7,8 +7,8 @@ function calculatePremium(carValue, riskRating) {
   const monthlyPremium = yearlyPremium / 12;
 
   return {
-    monthly_premium: parseFloat(monthlyPremium.toFixed(2)),
-    yearly_premium: parseFloat(yearlyPremium.toFixed(2))
+    monthly_premium: parseFloat(monthlyPremium.toFixed(1)),
+    yearly_premium: parseFloat(yearlyPremium.toFixed(1))
   };
 }
 

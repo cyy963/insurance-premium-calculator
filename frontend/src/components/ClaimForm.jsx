@@ -5,8 +5,7 @@ import styles from "./CarValueForm.module.css"
 const ClaimForm = () => {
     const [claimHistory, setClaimHistory] = useState();
     const [riskRating, setRiskRating] = useState();
-    const [error, setError] = useState();
-
+    const [error, setError] = useState();3
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
@@ -22,23 +21,21 @@ const ClaimForm = () => {
 
     return (
         <div className={styles.carValueFormContainer}>
-            <h1>Risk Rating Calculator</h1>
+            <h2>2. Risk Rating Calculator</h2>
             <form onSubmit={handleSubmit}>
-                    <label htmlFor="claim">Claim History:</label>
-                    <br />
-                    <textarea
-                    id="claim"
-                    placeholder='Please enter your claim history.'
-                        rows="5" cols="40"
-                        value={claimHistory}
-                        onChange={(e) => setClaimHistory(e.target.value)}
-                        required>
+              <div className={styles.inputContainer} id={styles.claim}>
+                <textarea
+                  placeholder='Please enter your claim history.'
+                  rows="5" cols="39"
+                  value={claimHistory}
+                  onChange={(e) => setClaimHistory(e.target.value)}
+                  required>
                 </textarea>
-                <br />
-                <button type="submit">Submit</button>
+              </div>
+              <button type="submit">Calculate</button>
             </form>
-            {riskRating && <h2>Risk Rating: {riskRating}</h2>}
-            {error && <h2>Error: {error}</h2>}
+            <h3>Risk Rating: {riskRating && `${riskRating}`}</h3>
+            {error && <h3>Error: {error}</h3>}
         </div>
     );
 };
