@@ -29,20 +29,19 @@ function countKeywords(claimArray) {
   
 function isOnlySymbols(str) {
   const regex = /^[^a-zA-Z0-9]+$/;
-  return regex.text(str);
+  return regex.test(str);
 }
    
   
 function calculateRiskRating(inputClaim) {
   const MINIMUM_WORDS_IN_CLAIM = 3;
-  
     const claimArray = claimToLowerCase(inputClaim.trim().split(" "));
     if (claimArray < MINIMUM_WORDS_IN_CLAIM || isOnlySymbols(inputClaim)) {
-      return 'error';
+      throw new Error("there is an error");
     } else {
-      return countKeywords(claimArray);
-    }
-      
+      const riskRating = countKeywords(claimArray);
+      return { risk_rating: riskRating }
+    }   
   };
   
   module.exports =  calculateRiskRating ;

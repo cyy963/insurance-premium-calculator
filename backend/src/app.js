@@ -25,13 +25,13 @@ app.post('/car-value', (req, res) => {
 
 app.post('/risk-rating', (req, res) => {
   const claimHistory  = req.body.claim_history;
-  const riskRating = calculateRiskRating(claimHistory);
-  
-  if (riskRating === 'error'){
-      return res.status(400).json({ error: "there is an error" });
-  } else {
-    res.json({ risk_rating: riskRating });
-  }
+  try {
+    const riskRating = calculateRiskRating(claimHistory);
+    res.json(riskRating);
+} catch (e) {
+    res.status(400).json({ error: e.message });
+}
+
 });
 
 app.post('/quote', (req, res) => {
