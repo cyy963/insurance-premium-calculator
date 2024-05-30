@@ -26,7 +26,7 @@ const ClaimForm = () => {
               <div className={styles.inputContainer} id={styles.claim}>
                 <textarea
                   placeholder='Please enter your claim history.'
-                  rows="5" cols="40"
+                  rows="5" cols="39"
                   value={claimHistory}
                   onChange={(e) => setClaimHistory(e.target.value)}
                   required>
