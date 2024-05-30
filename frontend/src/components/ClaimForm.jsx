@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import styles from "./CarValueForm.module.css"
+import styles from "./Forms.module.css"
 
 const ClaimForm = () => {
     const [claimHistory, setClaimHistory] = useState();
