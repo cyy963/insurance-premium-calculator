@@ -29,9 +29,10 @@ const QuoteForm = () => {
 
     return (
         <div className={styles.carValueFormContainer}>
-            <h1>Quote Calculator</h1>
+            <h2>3. Quote Calculator</h2>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="risk">Risk:</label>
+              <div className={styles.inputContainer}>
+                <label>Risk:</label>
                 <select id="risk" value={riskRating} onChange={(e) => setRiskRating(e.target.value)}>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -39,7 +40,8 @@ const QuoteForm = () => {
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <br />
+              </div>
+              <div className={styles.inputContainer}>
                 <label htmlFor="value">Car Value:</label>
                 <input
                     type="number"
@@ -47,12 +49,12 @@ const QuoteForm = () => {
                     onChange={(e) => setCarValue(e.target.value)}
                     required
                 />
-                <br />
-                <button type="submit">Submit</button>
+              </div>
+              <button type="submit">Calculate</button>
             </form>
-            {monthlyPremium !== null && <h2>Monthly Premium: ${monthlyPremium.toFixed(2)}</h2>}
-            {yearlyPremium !== null && <h2>Yearly Premium: ${yearlyPremium.toFixed(2)}</h2>}
-            {error && <h2>Error: {error}</h2>}
+            {monthlyPremium !== null && <h3>Monthly Premium: ${monthlyPremium.toFixed(2)}</h3>}
+            {yearlyPremium !== null && <h3>Yearly Premium: ${yearlyPremium.toFixed(2)}</h3>}
+            {error && <h3>Error: {error}</h3>}
         </div>
     );
 };

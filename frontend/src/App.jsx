@@ -13,10 +13,14 @@ const App = () => {
     <div className='body'>
       <img className='nav' src={TCnav} alt="Navigation" />
       <img className='banner' src={TCbanner} alt="Banner" />
+      
       <div className='pageContent'>
-        <CarValueForm />
-        <ClaimForm />
-        <QuoteForm />
+        <h1>Use our online calculators to get a quote!</h1>
+        <div className='calculators'>
+          <CarValueForm />
+          <ClaimForm />
+          <QuoteForm />
+        </div>
       </div>
       <img className='footer' src={TCfooter} alt="Footer" />
     </div>
