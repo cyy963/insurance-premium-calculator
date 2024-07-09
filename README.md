@@ -25,7 +25,7 @@ It also included tests for the API using Jest and Supertest.
 
 
 <!-- GETTING STARTED -->
-### Installation
+## Installation
 
 1. Clone the repo
    ```sh
