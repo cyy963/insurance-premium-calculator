@@ -23,10 +23,6 @@ It also included tests for the API using Jest and Supertest.
 ![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
 ![Supertest](https://img.shields.io/badge/Supertest-16C60C?style=for-the-badge)
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 
 <!-- GETTING STARTED -->
 ### Installation
@@ -43,6 +39,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
    ```sh
    npm run dev
    ```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
