@@ -1,4 +1,4 @@
-# Insurance Premium Calculator Backend (Archived)
+# Insurance Premium Calculator (Archived)
 
 **Note:** This project is no longer functional as the frontend which was hosted on Azure has been disabled. The code is kept here for reference purposes only.
 
